@@ -30,7 +30,8 @@ Our project is a HTML based site that gives info about firefighting and easy acc
 <summary>Show</summary>
 <br>
     
-    <!-- screenshots-->
+   ![Screenshot 2025-06-07 232103](https://github.com/user-attachments/assets/65dac54f-ab49-4e50-9f34-6d7706386f62)
+
     
 </details>
     
