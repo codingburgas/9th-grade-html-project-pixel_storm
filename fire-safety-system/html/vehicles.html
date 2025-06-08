@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Readiness</title>
+  <link rel="stylesheet" href="../css/stylevehicle.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Team Readiness</h1>
+    <p>Check live status of emergency response units with just one click.</p>
+    <button onclick="checkStatus()">Check Live Status</button>
+
+    <div id="status" class="status-box hidden">
+      <h2>Unit Status</h2>
+      <ul>
+        <li>Unit 1 – 🚒 Ready</li>
+        <li>Unit 2 – 🚒 On Call</li>
+        <li>Unit 3 – 🔧 Maintenance</li>
+        <li>Unit 4 – 🚒 Ready</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function checkStatus() {
+      document.getElementById('status').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

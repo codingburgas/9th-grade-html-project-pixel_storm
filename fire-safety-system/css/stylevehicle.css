@@ -1,0 +1,59 @@
+/* team-styles.css */
+body {
+  background-color: #0d1b2a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #1b263b;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+  text-align: center;
+}
+
+h1 {
+  color: #ff6600;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e65c00;
+}
+
+.status-box {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #32475b;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.status-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.status-box li {
+  padding: 8px 0;
+  border-bottom: 1px solid #46627f;
+}
+
+.hidden {
+  display: none;
+}
