@@ -1,4 +1,4 @@
-<h1 align="center"> pixel | storm </h1>
+<h1 align="center"> PIXEL | STORM</h1>
     
 <br>
     
@@ -30,7 +30,7 @@ Our project is a HTML based site that gives info about firefighting and easy acc
 <summary>Show</summary>
 <br>
     
-   ![Screenshot 2025-06-07 232103](https://github.com/user-attachments/assets/65dac54f-ab49-4e50-9f34-6d7706386f62)
+![Front Page](fire-safety-system/assets/frontpage.png)
 
     
 </details>
@@ -57,7 +57,7 @@ Our project is a HTML based site that gives info about firefighting and easy acc
     
 
 <p1>👉🏼 Иван Иванов . 9В . Scrum trainer | IIIvanov23@codingburgas.bg 👈🏼</p1><br>
-<p2>👉🏼 Божидар Георгиев . 9Б . Desiner | BMGeorgiev23@codingburgas.bg 👈🏼<p2><br>
+<p2>👉🏼 Божидар Георгиев . 9Б . Designer | BMGeorgiev23@codingburgas.bg 👈🏼<p2><br>
 <p3>👉🏼 Тодор Тороманов . 9А . Back-end developer | TAToromanov23@codingburgas.bg 👈🏼<p3><br>
 <p4>👉🏼 Явор Велизаров . 9Г . front-end developer | YAVVelizarov23@codingburgas.bg 👈🏼<p4><br>
 
