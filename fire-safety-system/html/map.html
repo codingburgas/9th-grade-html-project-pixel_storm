@@ -6,20 +6,22 @@
   <title>Pixel Storm – Incident Map</title>
   <link rel="stylesheet" href="../css/map.css" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <nav>
     <div class="container">
       <h1>Pixel Storm</h1>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
           <li><a href="teams.html">Teams</a></li>
           <li><a href="vehicles.html">Vehicles</a></li>
           <li><a href="incidents.html">Incidents</a></li>
           <li><a href="map.html" class="active">Map</a></li>
-      </ul>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+      </div>
     </div>
   </nav>
 
@@ -28,24 +30,24 @@
     <p class="map-description">
       This interactive map displays real-time locations of ongoing incidents and the assigned fire response units.
       <br>
-       Click on any marker to view more details about the event and team deployment.
+      Click on any marker to view more details about the event and team deployment.
     </p>
     <br>
     <div class="filter-container container">
-    <label for="statusFilter">Filter by Status:</label>
-    <select id="statusFilter">
-    <option value="All">All</option>
-    <option value="In progress">In progress</option>
-    <option value="Awaiting response">Awaiting response</option>
-    <option value="Resolved">Resolved</option>
-    </select>
+      <label for="statusFilter">Filter by Status:</label>
+      <select id="statusFilter">
+        <option value="All">All</option>
+        <option value="In progress">In progress</option>
+        <option value="Awaiting response">Awaiting response</option>
+        <option value="Resolved">Resolved</option>
+      </select>
     </div>
     <br>
-
     <div id="map"></div>
   </main>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="../js/leaflet.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
