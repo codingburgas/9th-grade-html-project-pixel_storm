@@ -34,6 +34,13 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .brand {
@@ -111,6 +118,7 @@ a {
 .features {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -123,6 +131,7 @@ a {
   padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease;
+  min-width: 260px;
 }
 
 .feature-card:hover {
@@ -134,14 +143,7 @@ a {
   margin-bottom: 0.5rem;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  color: #f16047;
-}
-
+/* Status labels */
 .status-green {
   background-color: #38a169;
   padding: 0.25rem 0.5rem;
@@ -166,23 +168,58 @@ a {
   font-size: 0.85rem;
 }
 
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #f16047;
 }
 
-.feature-card {
-  background-color: #1f1f1f;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  flex: 1 1 30%;
-  min-width: 260px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease;
+/* Theme Toggle */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  margin-left: 1rem;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
+/* Light Mode Overrides */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #1e1e2f;
+}
+
+body.light-mode .feature-card {
+  background-color: #ffffff;
+  color: #1e1e2f;
+}
+
+body.light-mode .header {
+  background-color: #f16047; /* Keep header the same */
+}
+
+body.light-mode .nav-links a {
+  color: #333;
+}
+
+body.light-mode .nav-links .active {
+  color: #f16047;
+}
+
+/* Only these text elements change color in light mode */
+body.light-mode .hero-text h1,
+body.light-mode .hero-text p {
+  color: #2a2a2a;
+}
+
+/* Team Icon */
+.team-icon {
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
 }
