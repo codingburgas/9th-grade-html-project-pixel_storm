@@ -1,7 +1,9 @@
 <h1 align="center"> PIXEL | STORM</h1>
     
 <br>
-    
+<p align="center">
+  <img src="fire-safety-system/assets/Logo.png" width="420" alt="Logo picture">
+</p>
 
 <h2 id="table-of-contents">Table of Contents</h2>
     
