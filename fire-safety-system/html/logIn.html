@@ -1,147 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login / Sign Up</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-    #loginForm, #signupForm {
-      background-color: white;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 300px;
-    }
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 90%;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 7px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      width: 100%;
-      padding: 8px;
-      background-color: #af4c4c;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #a04545;
-    }
-    #message {
-      text-align: center;
-      font-weight: bold;
-    }
-    button:nth-of-type(2) {
-      margin-top: 10px;
-      background-color: #2196F3;
-    }
-    button:nth-of-type(2):hover {
-      background-color: #0b7dda;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Sign Up – Pixel Storm</title>
+  <link rel="stylesheet" href="../css/logIn.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <h2 id="formTitle">Login</h2>
+  <main class="auth-container">
+    <h2 id="formTitle">Login</h2>
 
-  <form id="loginForm">
-    <label>Username:</label><br>
-    <input type="text" id="loginUsername"><br><br>
-    <label>Password:</label><br>
-    <input type="password" id="loginPassword"><br><br>
-    <button type="button" onclick="login()">Login</button>
-  </form>
+    <form id="loginForm" class="form-box">
+      <label>Username:</label>
+      <input type="text" id="loginUsername" />
+      <label>Password:</label>
+      <input type="password" id="loginPassword" />
+      <button type="button" onclick="login()">Login</button>
+    </form>
 
-  <form id="signupForm" style="display: none;">
-    <label>Username:</label><br>
-    <input type="text" id="signupUsername"><br><br>
-    <label>Email:</label><br>
-    <input type="email" id="signupEmail"><br><br>
-    <label>Password:</label><br>
-    <input type="password" id="signupPassword"><br><br>
-    <button type="button" onclick="signup()">Sign Up</button>
-  </form>
+    <form id="signupForm" class="form-box" style="display: none;">
+      <label>Username:</label>
+      <input type="text" id="signupUsername" />
+      <label>Email:</label>
+      <input type="email" id="signupEmail" />
+      <label>Password:</label>
+      <input type="password" id="signupPassword" />
+      <button type="button" onclick="signup()">Sign Up</button>
+    </form>
 
-  <br>
-  <button onclick="toggleForms()">Switch to Sign Up</button>
-  <p id="message"></p>
+    <button class="toggle-button" onclick="toggleForms()">Switch to Sign Up</button>
+    <p id="message"></p>
+  </main>
 
-  <script>
-    var isLogin = true;
-
-    function toggleForms() {
-      isLogin = !isLogin;
-      document.getElementById("loginForm").style.display = isLogin ? "block" : "none";
-      document.getElementById("signupForm").style.display = isLogin ? "none" : "block";
-      document.getElementById("formTitle").innerText = isLogin ? "Login" : "Sign Up";
-      document.querySelector("button[onclick='toggleForms()']").innerText = isLogin ? "Switch to Sign Up" : "Switch to Login";
-      document.getElementById("message").innerText = "";
-    }
-
-    function signup() {
-      var username = document.getElementById("signupUsername").value;
-      var email = document.getElementById("signupEmail").value;
-      var password = document.getElementById("signupPassword").value;
-      var message = document.getElementById("message");
-
-      if (username === "" || email === "" || password === "") {
-        message.innerText = "Please fill in all fields.";
-        message.style.color = "red";
-        return;
-      }
-
-      var users = JSON.parse(localStorage.getItem("users") || "{}");
-
-      if (users[username]) {
-        message.innerText = "This user already exists.";
-        message.style.color = "red";
-      } else {
-        users[username] = { email: email, password: password };
-        localStorage.setItem("users", JSON.stringify(users));
-        window.location.href = "home.html";
-      }
-    }
-
-    function login() {
-      var username = document.getElementById("loginUsername").value;
-      var password = document.getElementById("loginPassword").value;
-      var message = document.getElementById("message");
-
-      if (username === "" || password === "") {
-        message.innerText = "Please fill in all fields.";
-        message.style.color = "red";
-        return;
-      }
-
-      var users = JSON.parse(localStorage.getItem("users") || "{}");
-
-      if (!users[username]) {
-        message.innerText = "This account does not exist.";
-        message.style.color = "red";
-      } else if (users[username].password !== password) {
-        message.innerText = "Incorrect password.";
-        message.style.color = "red";
-      } else {
-        window.location.href = "index.html";
-      }
-    }
-  </script>
+  <script src="../js/logIn.js"></script>
 </body>
 </html>

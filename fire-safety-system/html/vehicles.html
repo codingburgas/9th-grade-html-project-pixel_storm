@@ -2,46 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Readiness</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Storm – Vehicles</title>
+  <link rel="stylesheet" href="../css/vehicles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-   <header class="header">
+  <header class="header">
     <div class="container nav">
       <div class="brand">Pixel Storm</div>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="teams.html">Teams</a></li>
-          <li><a href="vehicles.html">Vehicles</a></li>
+          <li><a href="vehicles.html" class="active">Vehicles</a></li>
           <li><a href="incidents.html">Incidents</a></li>
           <li><a href="map.html">Map</a></li>
           <li><a href="logIn.html">Log In</a></li>
         </ul>
       </nav>
+      <button class="theme-toggle-btn" id="themeToggle">🌙</button>
     </div>
   </header>
-  <div class="container">
-    <h1>Team Readiness</h1>
-    <p>Check live status of emergency response units with just one click.</p>
-    <button onclick="checkStatus()">Check Live Status</button>
 
-    <div id="status" class="status-box hidden">
-      <h2>Unit Status</h2>
-      <ul>
-        <li>Unit 1 – 🚒 Ready </li>
-        <li>Unit 2 – 🚒 On Call </li>
-        <li>Unit 3 – 🔧 Maintenance </li>
-        <li>Unit 4 – 🚒 Ready </li>
-      </ul>
-    </div>
-  </div>
+  <main class="container">
+    <section class="vehicles-section">
+      <h2>Vehicles Overview</h2>
+      <p>
+        Below is a list of all emergency vehicles currently registered in the system, 
+        including their team assignments and operational status.
+      </p>
 
-  <script>
-    function checkStatus() {
-      document.getElementById('status').classList.remove('hidden');
-    }
-  </script>
+      <div class="table-wrapper">
+        <table class="vehicles-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Assigned Team</th>
+              <th>Status</th>
+              <th>Last Updated</th>
+            </tr>
+          </thead>
+          <tbody id="vehicleTableBody">
+            <!-- JavaScript will inject rows here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Pixel Storm. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/vehicles.js"></script>
+  <script src="../js/main.js"></script>
+
 </body>
 </html>
