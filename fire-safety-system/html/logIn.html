@@ -2,7 +2,61 @@
 <html>
 <head>
   <title>Login / Sign Up</title>
-  <link rel="stylesheet" href="logIn.html">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #loginForm, #signupForm {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 90%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 7px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #af4c4c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #a04545;
+    }
+    #message {
+      text-align: center;
+      font-weight: bold;
+    }
+    button:nth-of-type(2) {
+      margin-top: 10px;
+      background-color: #2196F3;
+    }
+    button:nth-of-type(2):hover {
+      background-color: #0b7dda;
+    }
+  </style>
 </head>
 <body>
   <h2 id="formTitle">Login</h2>
