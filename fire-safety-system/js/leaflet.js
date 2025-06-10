@@ -6,9 +6,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
 }).addTo(map);
 
-// Incident data
-const incidents = [
+// Initial static incident data (with fixed IDs)
+const baseStaticIncidents = [
   {
+    id: 'static-1',
     name: "Warehouse Fire",
     lat: 42.6977,
     lng: 23.3219,
@@ -17,6 +18,7 @@ const incidents = [
     status: "In progress"
   },
   {
+    id: 'static-2',
     name: "Car Accident",
     lat: 43.2141,
     lng: 27.9147,
@@ -25,6 +27,7 @@ const incidents = [
     status: "Awaiting response"
   },
   {
+    id: 'static-3',
     name: "Forest Fire",
     lat: 41.9305,
     lng: 23.4910,
@@ -33,6 +36,7 @@ const incidents = [
     status: "Resolved"
   },
   {
+    id: 'static-4',
     name: "Gas Leak",
     lat: 42.1431,
     lng: 24.7495,
@@ -41,6 +45,7 @@ const incidents = [
     status: "In progress"
   },
   {
+    id: 'static-5',
     name: "Apartment Fire",
     lat: 43.8356,
     lng: 25.9657,
@@ -50,35 +55,103 @@ const incidents = [
   }
 ];
 
+// Get static incidents from storage or default
+function getStaticIncidents() {
+  const stored = JSON.parse(localStorage.getItem("staticIncidents"));
+  return Array.isArray(stored) ? stored : baseStaticIncidents;
+}
+
+// Get local dynamic incidents from storage
+function getLocalIncidents() {
+  const stored = JSON.parse(localStorage.getItem("incidents") || "[]");
+  return stored.map((item, index) => {
+    const [lat, lng] = parseLatLng(item.location);
+    return {
+      id: `local-${index}`,
+      name: item.title,
+      lat,
+      lng,
+      type: item.type,
+      team: "Unassigned",
+      status: "Reported"
+    };
+  }).filter(inc => inc.lat && inc.lng);
+}
+
+// Parse string "lat,lng"
+function parseLatLng(str) {
+  if (!str || typeof str !== "string") return [null, null];
+  const parts = str.split(",").map(p => parseFloat(p.trim()));
+  return parts.length === 2 && parts.every(p => !isNaN(p)) ? parts : [null, null];
+}
+
 let markers = [];
 
-// Function to display markers
-function displayIncidents(filterStatus) {
-  // Clear existing markers
+// Render all markers
+function displayIncidents(filterStatus = "All") {
   markers.forEach(marker => map.removeLayer(marker));
   markers = [];
 
-  const filtered = incidents.filter(incident =>
+  const staticIncidents = getStaticIncidents();
+  const localIncidents = getLocalIncidents();
+  const allIncidents = [...staticIncidents, ...localIncidents];
+
+  const filtered = allIncidents.filter(incident =>
     filterStatus === 'All' || incident.status === filterStatus
   );
 
   filtered.forEach(incident => {
     const marker = L.marker([incident.lat, incident.lng]).addTo(map);
-    marker.bindPopup(`
+
+    const isStatic = incident.id.startsWith("static-");
+    const isLocal = incident.id.startsWith("local-");
+
+    const popupContent = `
       <strong>${incident.name}</strong><br>
       Type: ${incident.type}<br>
       Team: ${incident.team}<br>
       Status: ${incident.status}
-    `);
+      <br><button class="delete-incident-btn" data-id="${incident.id}">🗑 Delete</button>
+    `;
+
+    marker.bindPopup(popupContent);
     markers.push(marker);
   });
 }
 
+// Delete handler
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-incident-btn")) {
+    const id = e.target.getAttribute("data-id");
+
+    if (id.startsWith("static-")) {
+      // Delete static incident
+      let staticData = getStaticIncidents();
+      staticData = staticData.filter(inc => inc.id !== id);
+      localStorage.setItem("staticIncidents", JSON.stringify(staticData));
+    } else if (id.startsWith("local-")) {
+      const index = parseInt(id.split("-")[1]);
+      let localData = JSON.parse(localStorage.getItem("incidents") || "[]");
+      localData.splice(index, 1);
+      localStorage.setItem("incidents", JSON.stringify(localData));
+    }
+
+    // Refresh map
+    displayIncidents(document.getElementById("statusFilter").value);
+  }
+});
+
 // Initial load
 displayIncidents("All");
 
-// Handle dropdown changes
+// Filter control
 document.getElementById("statusFilter").addEventListener("change", function () {
-  const selectedStatus = this.value;
-  displayIncidents(selectedStatus);
+  displayIncidents(this.value);
+});
+// Reset static incidents button
+document.getElementById("resetIncidentsBtn").addEventListener("click", () => {
+  if (confirm("Are you sure you want to reset static incidents to defaults?")) {
+    localStorage.removeItem("staticIncidents");
+    displayIncidents(document.getElementById("statusFilter").value);
+  }
 });

@@ -165,3 +165,32 @@ body.light-mode .leaflet-popup-content-wrapper {
 body.light-mode .leaflet-popup-tip {
   background-color: #ffffff;
 }
+.delete-incident-btn {
+  margin-top: 8px;
+  padding: 4px 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-incident-btn:hover {
+  background-color: #c0392b;
+}
+.reset-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #2980b9;
+}

@@ -38,11 +38,15 @@
     <div class="filter-container container">
       <label for="statusFilter">Filter by Status:</label>
       <select id="statusFilter">
-        <option value="All">All</option>
-        <option value="In progress">In progress</option>
-        <option value="Awaiting response">Awaiting response</option>
-        <option value="Resolved">Resolved</option>
-      </select>
+  <option value="All">All</option>
+  <option value="Reported">Reported</option>
+  <option value="In progress">In Progress</option>
+  <option value="Awaiting response">Awaiting Response</option>
+  <option value="Resolved">Resolved</option>
+</select>
+<button id="resetIncidentsBtn" class="reset-btn">🔄 Reset Static Incidents</button>
+
+
     </div>
     <br>
     <div id="map"></div>
