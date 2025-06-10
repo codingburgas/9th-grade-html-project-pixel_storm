@@ -1,5 +1,3 @@
-// js/vehicles.js
-
 const vehicleData = [
   {
     id: "V001",
@@ -65,6 +63,7 @@ const vehicleData = [
     last_updated: "2025-06-08 13:55"
   }
 ];
+
 // Map status to badge color
 function getStatusClass(status) {
   switch (status) {
@@ -79,7 +78,7 @@ function getStatusClass(status) {
   }
 }
 
-// Render to table
+// Render vehicle data into the table
 function renderVehicles(data) {
   const tbody = document.getElementById("vehicleTableBody");
   tbody.innerHTML = "";
@@ -99,6 +98,21 @@ function renderVehicles(data) {
   });
 }
 
+// Initialize rendering and filtering
 document.addEventListener("DOMContentLoaded", () => {
+  const filter = document.getElementById("statusFilter");
+
+  if (filter) {
+    filter.addEventListener("change", () => {
+      const selected = filter.value;
+      if (selected === "All") {
+        renderVehicles(vehicleData);
+      } else {
+        const filtered = vehicleData.filter(v => v.status === selected);
+        renderVehicles(filtered);
+      }
+    });
+  }
+
   renderVehicles(vehicleData);
 });

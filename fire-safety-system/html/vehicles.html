@@ -9,8 +9,9 @@
 </head>
 <body>
   <header class="header">
-    <div class="container nav">
-      <div class="brand">Pixel Storm</div>
+  <div class="container nav">
+    <div class="brand">Pixel Storm</div>
+    <div class="nav-right">
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -21,9 +22,11 @@
           <li><a href="logIn.html">Log In</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle-btn" id="themeToggle">🌙</button>
+      <button id="themeToggle" class="theme-toggle-btn">🌙</button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main class="container">
     <section class="vehicles-section">
@@ -32,6 +35,16 @@
         Below is a list of all emergency vehicles currently registered in the system, 
         including their team assignments and operational status.
       </p>
+      <div class="filter-wrapper">
+  <label for="statusFilter">Filter by Status:</label>
+  <select id="statusFilter">
+    <option value="All">All</option>
+    <option value="Available">Available</option>
+    <option value="In Use">In Use</option>
+    <option value="Maintenance">Maintenance</option>
+  </select>
+</div>
+
 
       <div class="table-wrapper">
         <table class="vehicles-table">
