@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile – Pixel Storm</title>
+  <link rel="stylesheet" href="../css/profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">Pixel Storm</div>
+      <div class="nav-right">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="teams.html">Teams</a></li>
+            <li><a href="vehicles.html">Vehicles</a></li>
+            <li><a href="incidents.html">Incidents</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="logIn.html" id="loginNav">Log In</a></li>
+            <li><a href="profile.html" id="profileNav" style="display: none;">Profile</a></li>
+          </ul>
+        </nav>
+        <button id="themeToggle" class="theme-toggle-btn">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container profile-container">
+    <h2>Welcome, <span id="username">User</span></h2>
+    <div class="profile-box">
+      <div class="profile-avatar">👤</div>
+      <div class="profile-info">
+        <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+        <p><strong>Member Since:</strong> <span id="memberSince">June 2025</span></p>
+        <p><strong>Role:</strong> Responder</p>
+      </div>
+    </div>
+    <button id="logoutBtn" class="logout-btn">Log Out</button>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Pixel Storm. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

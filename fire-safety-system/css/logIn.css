@@ -89,3 +89,15 @@ button:hover {
   font-weight: 500;
   color: #ff6b6b;
 }
+.return-home {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #63b3ed;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.return-home:hover {
+  color: #f16047;
+}

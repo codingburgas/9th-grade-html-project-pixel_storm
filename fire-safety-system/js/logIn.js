@@ -46,9 +46,14 @@ function login() {
 
   if (!users[username]) {
     message.innerText = "This account does not exist.";
-  } else if (users[username].password !== password) {
-    message.innerText = "Incorrect password.";
-  } else {
-    window.location.href = "index.html";
-  }
+} else if (users[username].password !== password) {
+  message.innerText = "Incorrect password.";
+} else {
+  localStorage.setItem('currentUser', username); 
+  window.location.href = "index.html";
+}
+
+
+
+
 }
