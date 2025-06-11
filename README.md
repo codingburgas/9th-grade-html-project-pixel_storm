@@ -71,3 +71,12 @@ Our project is a HTML based site that gives info about firefighting and easy acc
 <pre align="center">git clone "https://github.com/codingburgas/9th-grade-html-project-pixel_storm.git"</pre>
 
 <hr>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## Documents
+
+📊 [Presentation](docs/Java%20Script%20Pixel%20Storm.pptx)  
+📄 [Documentation](docs/Syntax%20(1).docx)
+
+---
