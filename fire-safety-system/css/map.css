@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Rubik:wght@400;600&display=swap');
+
 /* Reset & Base Styles */
 * {
   margin: 0;
@@ -23,11 +26,16 @@ a {
   padding: 0 1rem;
 }
 
-/* Header / Nav */
+
 nav {
-  background-color: #f16047;
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(6px);
   padding: 1rem 0;
   border-bottom: 1px solid #3a3a4d;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Orbitron', sans-serif;
 }
 
 nav .container {
@@ -39,32 +47,52 @@ nav .container {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #f16047;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .nav-links a {
   color: #ccc;
   font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+.nav-links a:hover,
 .nav-links .active {
-  color: #f09e8f;
-  font-weight: 600;
+  color: #f16047;
 }
 
-/* Map Page Specific */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #f16047;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links .active::after {
+  width: 100%;
+}
+
+
 .map-page {
   padding: 3rem 2rem;
   text-align: center;
@@ -117,7 +145,38 @@ nav h1 {
   background-color: #2a2a3c;
 }
 
-/* Theme Toggle Button */
+
+.delete-incident-btn {
+  margin-top: 8px;
+  padding: 4px 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-incident-btn:hover {
+  background-color: #c0392b;
+}
+
+.reset-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #2980b9;
+}
+
 .theme-toggle-btn {
   background: transparent;
   border: none;
@@ -127,7 +186,7 @@ nav h1 {
   margin-left: 1rem;
 }
 
-/* Light Mode Overrides */
+
 body.light-mode {
   background-color: #f4f4f4;
   color: #1e1e2f;
@@ -164,33 +223,4 @@ body.light-mode .leaflet-popup-content-wrapper {
 
 body.light-mode .leaflet-popup-tip {
   background-color: #ffffff;
-}
-.delete-incident-btn {
-  margin-top: 8px;
-  padding: 4px 10px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.delete-incident-btn:hover {
-  background-color: #c0392b;
-}
-.reset-btn {
-  margin-top: 10px;
-  margin-left: 10px;
-  padding: 6px 12px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.reset-btn:hover {
-  background-color: #2980b9;
 }
